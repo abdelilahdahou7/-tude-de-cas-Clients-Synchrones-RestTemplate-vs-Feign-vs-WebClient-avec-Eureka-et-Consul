@@ -22,3 +22,4 @@ spring:
       port: 8500
       discovery:
         service-name: service-client
+        prefer-ip-address: true
