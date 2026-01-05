@@ -1,11 +1,11 @@
 server:
-  port: 8082
+  port: 8081
 
 spring:
   application:
-     name: service-car
+     name: inventory-service
   datasource:
-    url: jdbc:h2:mem:car-db
+    url: jdbc:h2:mem:client-db
     driverClassName: org.h2.Driver
     username: sa
     password:
@@ -16,7 +16,9 @@ spring:
     console:
       enabled: true
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: inventory-service

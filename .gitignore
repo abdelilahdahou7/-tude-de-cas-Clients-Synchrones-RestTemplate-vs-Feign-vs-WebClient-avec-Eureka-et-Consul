@@ -1,8 +1,10 @@
-*.log
 target/
+*.log
+.idea/
+*.iml
 .mvn/
 mvnw
 mvnw.cmd
-.idea/
-*.iml
+help.md
 .DS_Store
+*.class

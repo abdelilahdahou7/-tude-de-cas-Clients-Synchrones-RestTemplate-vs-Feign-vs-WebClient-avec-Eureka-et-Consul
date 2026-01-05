@@ -26,10 +26,17 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class CarApplication {
+@org.springframework.cloud.openfeign.EnableFeignClients
+public class ServiceClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CarApplication.class, args);
+        SpringApplication.run(ServiceClientApplication.class, args);
+    }
+
+    @Bean
+    @org.springframework.cloud.client.loadbalancer.LoadBalanced
+    public org.springframework.web.client.RestTemplate restTemplate() {
+        return new org.springframework.web.client.RestTemplate();
     }
 
     @Bean
@@ -103,37 +110,6 @@ class Car {
 }
 
 interface CarRepository extends JpaRepository<Car, Long> {
-}
-
-@NoArgsConstructor
-class Client {
-    private Long id;
-    private String nom;
-    private Float age;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public Float getAge() {
-        return age;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setAge(Float age) {
-        this.age = age;
-    }
 }
 
 @Data

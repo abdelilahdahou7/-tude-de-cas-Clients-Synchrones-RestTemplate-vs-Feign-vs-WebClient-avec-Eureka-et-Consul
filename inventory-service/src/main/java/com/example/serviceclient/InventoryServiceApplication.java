@@ -22,9 +22,9 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ClientApplication {
+public class InventoryServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ClientApplication.class, args);
+        SpringApplication.run(InventoryServiceApplication.class, args);
     }
 
     @Bean
